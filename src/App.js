@@ -3,6 +3,7 @@ import './App.css';
 import leroyMerlin from "./assets/leroyMerlin.png";
 import loveTiles from "./assets/loveTiles.png";
 import margres from "./assets/margres.png";
+import gresart from "./assets/logoGresart.png";
 
 function App() {
   const [data, setData] = useState([]);
@@ -86,6 +87,11 @@ function App() {
   };
 
   const handleSelectChange = (header, value) => {
+    if(value === "") {
+      clearFilters();
+      return;
+    }
+    
     if(header !== "Margem"){
       setFilters(prev => ({
         ...prev,
@@ -189,7 +195,7 @@ function App() {
   return (
     <>
       <div className="painel">
-        <h1>Tabela Grespanaria(Love/Margres/Kerlite/Linea)2025</h1>
+        <h1>Tabela Grespanaria ( Gresart / Love / Margres / Kerlite / Linea ) 2026</h1>
 
         {loading && <p>Carregando dados...</p>}
         {error && <p>Erro: {error}</p>}
@@ -283,6 +289,7 @@ function App() {
           <img src={leroyMerlin} className='ley' />
           <img src={loveTiles} className='love' />
           <img src={margres} className='margres' />
+          <img src={gresart} className='gresart' />
         </div>
       </footer>
     </>
